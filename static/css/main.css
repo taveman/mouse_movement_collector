@@ -1,0 +1,40 @@
+.top_form {
+    width: 500px;
+    margin: auto;
+}
+label {
+    margin-top: 5px !important;
+    font-size: 14px;
+    color: #333333;
+}
+
+.bank_form {
+    width: auto;
+    margin: auto;
+}
+
+.main_text {
+    text-align: center;
+    padding: 10px;
+    font-size: 20px;
+}
+
+.warning_text {
+    text-align: center;
+    padding: 10px 10px 20px 10px;
+    color: #ff1000;
+}
+
+.bank_img {
+    margin: auto;
+    width: 120px;
+    height: 120px;
+    background-image: url('../images/bank.png');
+}
+
+.warning {
+    text-align: center;
+    padding: 10px;
+    color: #ff1000;
+    font-size: 20px;
+}

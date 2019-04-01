@@ -1,0 +1,47 @@
+version: '2.1'
+
+services:
+
+  app:
+    build:
+      context: .
+      dockerfile: docker/application/Dockerfile
+    container_name: django_app
+    ports:
+      - '8000:8000'
+    volumes:
+      - .:/statistics
+    command: >
+      sh -c "python manage.py wait_for_db && python manage.py runserver 0.0.0.0:8000"
+
+    environment:
+      - DB_HOST=db
+      - DB_NAME=statistics
+      - DB_USER=statistics_django
+      - DB_PASS=ProloStop22
+      - DB_PORT=5455
+
+      - DB_HOST_STAT=db
+      - DB_NAME_STAT=statistics
+      - DB_USER_STAT=statistics_user
+      - DB_PASS_STAT=ProloStop22
+      - DB_PORT_STAT=5455
+      - LOGLEVEL = INFO
+    depends_on:
+      - db
+
+  db:
+    container_name: postgres
+    build:
+      context: .
+      dockerfile: docker/database/Dockerfile
+    ports:
+      - '5455:5455'
+    env_file:
+      - docker/database/postgresql_env.conf
+    volumes:
+      - /opt/data:/var/lib/postgresql/data
+
+#volumes:
+#  data:
+#    external: true

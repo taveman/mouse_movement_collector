@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Банк</title>
+    <script src="/static/js/main.js"></script>
+    <!--<script src="/static/js/logic.js"></script>-->
+    <link href="/static/css/pure-min.css" type="text/css" rel="stylesheet">
+    <link href="/static/css/buttons-min.css" type="text/css" rel="stylesheet">
+    <link href="/static/css/forms-min.css" type="text/css" rel="stylesheet">
+    <link href="/static/css/menus-min.css" type="text/css" rel="stylesheet">
+    <link href="/static/css/main.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="top_form">
+        <form class="pure-form pure-form-stacked pure-form-aligned">
+            <fieldset>
+            <legend>Форма для обязательного заполнения</legend>
+            <input id="surname" value="" name="surname" placeholder="Фамилия">
+            <input id="age" value="" name="age" placeholder="Возраст">
+            <label for="grade">Курс: </label>
+                <select id="grade" name="grade">
+                    <option disabled selected value=""> -- </option>
+                    <option value="first">Первый</option>
+                    <option value="second">Второй</option>
+                    <option value="third">Третий</option>
+                    <option value="fourth">Четвертый</option>
+                    <option value="fifth">Пятый</option>
+                    <option value="magister">Магистратура</option>
+                    <option value="other">Другое</option>
+                </select>
+
+            <label for="left_handed">Левша: </label>
+                <select id="left_handed" name="left_handed">
+                    <option disabled selected value=""> -- </option>
+                    <option value="0">Нет</option>
+                    <option value="1">Да</option>
+                </select>
+
+
+            <label for="left_handed">Канал связи: </label>
+                <select id="channel" name="channel">
+                    <option disabled selected value=""> -- </option>
+                    <option value="wifi">WiFi</option>
+                    <option value="cable">Кабель</option>
+                    <option value="mobile">Мобильная сеть</option>
+                </select>
+
+
+            <label for="device">Устройство: </label>
+                <select id="device" name="device">
+                    <option disabled selected value=""> -- </option>
+                    <option value="smartphone">Смартфон</option>
+                    <option value="desktop">Настольный</option>
+                    <option value="laptop">Ноутбук</option>
+                </select>
+
+
+            <label for="virtual">Виртуальная машина: </label>
+                <select id="virtual" name="virtual">
+                    <option disabled selected value=""> -- </option>
+                    <option value="0">Нет</option>
+                    <option value="1">Да</option>
+                </select>
+
+            <label for="gender">Пол: </label>
+                <select id="gender" name="gender">
+                    <option disabled selected value=""> -- </option>
+                    <option value="F">Женский</option>
+                    <option value="M">Мужской</option>
+                </select>
+
+
+            <label for="os">Операционная система: </label>
+                <select id="os" name="os">
+                    <option disabled selected value=""> -- </option>
+                    <option value="windows">Windows</option>
+                    <option value="linux">Linux</option>
+                    <option value="macos">MacOS</option>
+                    <option value="android">Android</option>
+                    <option value="ios">IOS</option>
+                </select>
+
+
+            <label for="remote_tool">Инструмент удаленного управления: </label>
+                <select id="remote_tool" name="remote_tool">
+                    <option disabled selected value=""> -- </option>
+                    <option value="teamviewer">TeamViewer</option>
+                    <option value="microsoft_remote">Microsoft Remote Desktop</option>
+                    <option value="radmin">Radmin</option>
+                    <option value="ultra_vnc">UltraVNC</option>
+                    <option value="chrome_remote">Chrome Remote Desktop</option>
+                    <option value="realvnc">RealVNC</option>
+                </select>
+
+            <button id="js-send_button" type="submit" class="pure-button pure-button-primary pure-button-disabled">Отправить</button>
+                <div id="warning" class="warning" style="display: none">Не все поля заполнены</div>
+            </fieldset>
+        </form>
+    </div>
+    <div>
+        <div class="main_text">Необходимо перевести 10000 рублей из формы (Банк 1) слева в форму справа (Банк 2) используя мышку.</div>
+        <div class="warning_text">Обратите внимание что надо использовать мышку как можно чаще!</div>
+        <div class="bank_wrapper pure-g">
+            <div class="bank_form pure-u-1-2">
+                <div class="bank_img"></div>
+                <form id="form_bank_1" class="pure-form pure-form-stacked pure-form-aligned">
+                    <fieldset>
+                        <!--<input id="js-bank_1_amount" value="250" name="surname" placeholder="Сумма для отправки">-->
+                        <select id="js-bank_1_amount" name="remote_tool">
+                            <option disabled selected value=""> -- </option>
+                            <option value="250">250</option>
+                        </select>
+                        <label for="select_to_be_sent">Выберите банк получатель: </label>
+                        <select id="select_to_be_sent" name="remote_tool">
+                            <option disabled selected value=""> -- </option>
+                            <option value="bank_2">В Банк 2</option>
+                        </select>
+                        <button id="send_button" class="pure-button pure-button-primary pure-button-disabled">Отправить</button>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="bank_form pure-u-1-2 ">
+                <div class="bank_img"></div>
+                <form id="form_bank_2" class="pure-form pure-form-stacked pure-form-aligned">
+                    <fieldset>
+                        <input id="js-bank_2_amount" value="0" name="surname" placeholder="Здесь будет копиться">
+                        <label for="select_to_be_sent">Выберите банк получатель: </label>
+                        <button id="receive_button" class="pure-button pure-button-primary pure-button-disabled">Получить</button>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
