@@ -1,0 +1,10 @@
+[Unit]
+Description=uWSGI instance to serve statistics application
+After=postgresql-10.service
+
+[Service]
+ExecStartPre=-/bin/bash -c 'mkdir -p /run/statics; chown firt:firt /run/statics'
+ExecStart=/bin/bash -c 'cd /opt/statistics; source /opt/statistics_env/bin/activate; uwsgi --ini /opt/statistics/configs/uwsgi.ini'
+
+[Install]
+WantedBy=multi-user.target
