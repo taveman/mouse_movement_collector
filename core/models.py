@@ -45,19 +45,19 @@ class RemoteData(models.Model):
     )
 
     REMOTE_TEAM_VIEWER = 'teamviewer'
-    REMOTE_MICROSOFT_REMOTE = 'microsoft_remote'
+    REMOTE_ANYDESC = 'anydesc'
     REMOTE_RADMIN = 'radmin'
-    REMOTE_ULTRA_VNC = 'ultra_vnc'
-    REMOTE_CHROME_REMOTE = 'chrome_remote'
-    REMOTE_REALVNC = 'realvnc'
+    REMOTE_AMMYY_ADMIN = 'ammyy_admin'
+    REMOTE_SUPREMO = 'supremo'
+    REMOTE_TRUSTVIEWER = 'trustviewer'
 
     REMOTE_TOOLS = (
         (REMOTE_TEAM_VIEWER, 'Teamviewer'),
-        (REMOTE_MICROSOFT_REMOTE, 'Microsoft Remote'),
+        (REMOTE_ANYDESC, 'Anydesc'),
         (REMOTE_RADMIN, 'Radmin'),
-        (REMOTE_ULTRA_VNC, 'UltraVNC'),
-        (REMOTE_CHROME_REMOTE, 'Chrome Remote'),
-        (REMOTE_REALVNC, 'RealVNC'),
+        (REMOTE_AMMYY_ADMIN, 'Ammyy admin'),
+        (REMOTE_SUPREMO, 'Supremo'),
+        (REMOTE_TRUSTVIEWER, 'TrustViewer'),
     )
 
     ip = models.GenericIPAddressField('ip address', blank=False)
